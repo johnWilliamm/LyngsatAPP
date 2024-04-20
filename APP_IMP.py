@@ -1,4 +1,8 @@
-!pip install mysql-connector-python  
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
 import streamlit as st
 import mysql.connector
 from mysql.connector import Error
