@@ -182,7 +182,7 @@ if submit_button:
 
 # Interface for adding favorite channels
 st.sidebar.title("Favorite Channels")
-fav_email = st.sidebar.text_input("User Email")
+fav_email = st.sidebar.text_input("User_Email")
 favorite_channel_id = st.sidebar.number_input("Favorite Channel ID", format="%d")
 add_favorite_button = st.sidebar.button("Add Favorite Channel")
 
