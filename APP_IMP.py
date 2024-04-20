@@ -1,11 +1,10 @@
+import streamlit as st
+import mysql.connector  # This line previously caused the error if the package was not installed correctly
+from mysql.connector import Error
+import pandas as pd  
+
 import os
 
-os.system("pip install mysql-connector-python")
-
-import streamlit as st
-import mysql.connector
-from mysql.connector import Error
-import pandas as pd  # Importing pandas for DataFrame handling
 
 def create_connection():
     """Establish a connection to the MySQL database."""
