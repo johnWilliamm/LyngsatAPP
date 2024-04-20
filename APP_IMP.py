@@ -1,7 +1,6 @@
-import subprocess
-import sys
+import os
 
-subprocess.check_call([sys.executable, "-m", "pip", "install", "mysql-connector-python"])
+os.system("pip install mysql-connector-python")
 
 import streamlit as st
 import mysql.connector
