@@ -1,7 +1,7 @@
 import subprocess
 import sys
 
-subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+subprocess.check_call([sys.executable, "-m", "pip", "install", "mysql-connector-python"])
 
 import streamlit as st
 import mysql.connector
