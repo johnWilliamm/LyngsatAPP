@@ -118,10 +118,11 @@ def top_five_providers():
             query = """
             SELECT provider_name, COUNT(*) AS channel_count, AVG(num_satellites) AS avg_satellites_per_channel
             FROM (
-                SELECT p.provider_name, c.channel_name, COUNT(DISTINCT c.satellite_name) AS num_satellites
-                FROM sysprovider p
-                JOIN syschannels c ON p.channel_name = c.channel_name
-                GROUP BY p.provider_name, c.channel_name
+                    SELECT p.provider_name, c.channel_name, COUNT(DISTINCT c.satellite_name) AS num_satellites
+                    FROM sysprovider p
+                    JOIN syschannels c ON p.channel_name = c.channel_name
+                    WHERE p.provider_name <> ''  -- Filtering out empty provider names
+                    GROUP BY p.provider_name, c.channel_name
             ) AS subquery
             GROUP BY provider_name
             ORDER BY channel_count DESC
@@ -181,7 +182,7 @@ if submit_button:
 
 # Interface for adding favorite channels
 st.sidebar.title("Favorite Channels")
-fav_email = st.sidebar.text_input("Favorite Email")
+fav_email = st.sidebar.text_input("User Email")
 favorite_channel_id = st.sidebar.number_input("Favorite Channel ID", format="%d")
 add_favorite_button = st.sidebar.button("Add Favorite Channel")
 
